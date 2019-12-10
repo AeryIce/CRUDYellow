@@ -7,12 +7,12 @@ Module ModuleKoneksi
 	Public Cmd As SqlCommand
 
 	Sub Koneksi()
-		Conn = New SqlConnection("Data Source=AERYICE-PC666;Initial Catalog=crudyellow;integrated security=true")
+		Conn = New SqlConnection("Data Source=DESKTOP-5A499D7\MSSQLSERVER01;Initial Catalog=crudyellow;integrated security=true")
 		Conn.Open()
 		Try
-			MsgBox("Koneksi Berhasil", MsgBoxStyle.Information, "Informasi")
+			FormLogin.LabelDatabase.Text = "Connected"
 		Catch ex As Exception
-			MsgBox(Err.Description, MsgBoxStyle.Critical, "Koneksi Gagal")
+			FormLogin.LabelDatabase.Text = "Not Connected"
 
 		End Try
 	End Sub
