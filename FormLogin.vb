@@ -17,7 +17,11 @@ Public Class FormLogin
 	End Sub
 
 	Private Sub ButtonCancel_Click(sender As Object, e As EventArgs) Handles ButtonCancel.Click
-		Close()
+		If MsgBox("Anda Yakin Keluar?", MsgBoxStyle.YesNo, "Konfirmasi") = MsgBoxResult.Yes Then
+			Close()
+		Else
+			Me.Show()
+		End If
 	End Sub
 
 	Private Sub Buttonlogin_Click(sender As Object, e As EventArgs) Handles Buttonlogin.Click
@@ -27,6 +31,7 @@ Public Class FormLogin
 		Dr.Read()
 		If Dr.HasRows Then
 			FormSiswa.Show()
+			FormSiswa.TextBoxNIS.Focus()
 			Me.Visible = False
 		Else
 			MsgBox("Login Gagal")

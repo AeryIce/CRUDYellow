@@ -7,7 +7,7 @@ Module ModuleKoneksi
 	Public Cmd As SqlCommand
 
 	Sub Koneksi()
-		Conn = New SqlConnection("Data Source=AERYICE-PC666;Initial Catalog=crudyellow;integrated security=true")
+		Conn = New SqlConnection("Data Source=DESKTOP-5A499D7\MSSQLSERVER01;Initial Catalog=crudyellow;integrated security=true")
 		Conn.Open()
 		Try
 			FormLogin.LabelDatabase.Text = "Connected"

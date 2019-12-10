@@ -35,22 +35,43 @@ Public Class FormSiswa
 		Call Bersihkan()
 	End Sub
 
-	'Private Sub TextBoxNIS_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TextBoxNIS.KeyPress
-	'If e.KeyChar = Chr(13) Then
-	'	TextBoxNamaSiswa.Focus()
-	'	ButtonKeluarBatal.Text = "Batal"
-	'End If
+	Private Sub TextBoxNIS_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TextBoxNIS.KeyPress
+		If e.KeyChar = Chr(13) Then
+			TextBoxNamaSiswa.Focus()
+			ButtonKeluarBatal.Text = "Batal"
+		End If
 
-	'End Sub
+	End Sub
 
 	Private Sub ButtonTambah_Click(sender As Object, e As EventArgs) Handles ButtonTambah.Click
 		If TextBoxNIS.Text = "" Or TextBoxNamaSiswa.Text = "" Or TextBoxPassword.Text = "" Or TextBoxAlamat.Text = "" Or ComboBoxJenisKelamin.Text = "" Then
-			If MsgBox("Dalam Belum Lengkap, Lengkapi Data?", MsgBoxStyle.YesNo, "Konfirmasi") = MsgBoxResult.Yes Then
+			If MsgBox("Data belum lengkap, lengkapi data?", MsgBoxStyle.YesNo, "Konfirmasi") = MsgBoxResult.Yes Then
+				Dim Simpan As String = "INSERT INTO siswa VALUES ('" & TextBoxNIS.Text & "','" & TextBoxNamaSiswa.Text & "','" & TextBoxAlamat.Text & "','" & ComboBoxJenisKelamin.Text & "','" & TextBoxPassword.Text & "')"
+				Cmd = New SqlCommand(Simpan, Conn)
+				Cmd.ExecuteNonQuery()
 				Me.Show()
+				Call Bersihkan()
 			Else
+				MsgBox("Operasi di batalkan")
 				Call Bersihkan()
 				ButtonKeluarBatal.Text = "Keluar"
 			End If
+
+
+		Else
+			Call Koneksi()
+			Dim Simpan As String = "INSERT INTO siswa VALUES ('" & TextBoxNIS.Text & "','" & TextBoxNamaSiswa.Text & "','" & TextBoxAlamat.Text & "','" & ComboBoxJenisKelamin.Text & "','" & TextBoxPassword.Text & "')"
+			Cmd = New SqlCommand(Simpan, Conn)
+			Cmd.ExecuteNonQuery()
+			If MsgBox("Data Sudah Tersimpan, Input Lagi?", MsgBoxStyle.YesNo, "Konfirmasi") = MsgBoxResult.Yes Then
+				Call Bersihkan()
+			Else
+				MsgBox("Data Sudah Tersimpan")
+				Call Bersihkan()
+				ButtonKeluarBatal.Text = "Keluar"
+
+			End If
 		End If
+
 	End Sub
 End Class
