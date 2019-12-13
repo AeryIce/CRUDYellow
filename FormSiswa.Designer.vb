@@ -34,6 +34,7 @@ Partial Class FormSiswa
 		Me.TextBoxNamaSiswa = New System.Windows.Forms.TextBox()
 		Me.LabelNamaSiswa = New System.Windows.Forms.Label()
 		Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+		Me.TextBoxCariNIS = New System.Windows.Forms.TextBox()
 		Me.ButtonCari = New System.Windows.Forms.Button()
 		Me.GroupBox2 = New System.Windows.Forms.GroupBox()
 		Me.ButtonHapus = New System.Windows.Forms.Button()
@@ -43,7 +44,6 @@ Partial Class FormSiswa
 		Me.ButtonKeluarBatal = New System.Windows.Forms.Button()
 		Me.GroupBox4 = New System.Windows.Forms.GroupBox()
 		Me.DGVSiswa = New System.Windows.Forms.DataGridView()
-		Me.TextBoxCariNIS = New System.Windows.Forms.TextBox()
 		Me.GroupBoxDataSiswa.SuspendLayout()
 		Me.GroupBox1.SuspendLayout()
 		Me.GroupBox2.SuspendLayout()
@@ -158,16 +158,23 @@ Partial Class FormSiswa
 		Me.GroupBox1.Controls.Add(Me.ButtonCari)
 		Me.GroupBox1.Location = New System.Drawing.Point(364, 12)
 		Me.GroupBox1.Name = "GroupBox1"
-		Me.GroupBox1.Size = New System.Drawing.Size(293, 43)
+		Me.GroupBox1.Size = New System.Drawing.Size(228, 43)
 		Me.GroupBox1.TabIndex = 1
 		Me.GroupBox1.TabStop = False
 		Me.GroupBox1.Text = "Cari Data"
+		'
+		'TextBoxCariNIS
+		'
+		Me.TextBoxCariNIS.Location = New System.Drawing.Point(0, 17)
+		Me.TextBoxCariNIS.Name = "TextBoxCariNIS"
+		Me.TextBoxCariNIS.Size = New System.Drawing.Size(125, 20)
+		Me.TextBoxCariNIS.TabIndex = 10
 		'
 		'ButtonCari
 		'
 		Me.ButtonCari.Location = New System.Drawing.Point(143, 17)
 		Me.ButtonCari.Name = "ButtonCari"
-		Me.ButtonCari.Size = New System.Drawing.Size(144, 20)
+		Me.ButtonCari.Size = New System.Drawing.Size(69, 20)
 		Me.ButtonCari.TabIndex = 0
 		Me.ButtonCari.Text = "Cari"
 		Me.ButtonCari.UseVisualStyleBackColor = True
@@ -179,25 +186,25 @@ Partial Class FormSiswa
 		Me.GroupBox2.Controls.Add(Me.ButtonTambah)
 		Me.GroupBox2.Location = New System.Drawing.Point(358, 68)
 		Me.GroupBox2.Name = "GroupBox2"
-		Me.GroupBox2.Size = New System.Drawing.Size(299, 79)
+		Me.GroupBox2.Size = New System.Drawing.Size(234, 79)
 		Me.GroupBox2.TabIndex = 2
 		Me.GroupBox2.TabStop = False
 		Me.GroupBox2.Text = "Modif Data"
 		'
 		'ButtonHapus
 		'
-		Me.ButtonHapus.Location = New System.Drawing.Point(209, 19)
+		Me.ButtonHapus.Location = New System.Drawing.Point(137, 20)
 		Me.ButtonHapus.Name = "ButtonHapus"
-		Me.ButtonHapus.Size = New System.Drawing.Size(84, 37)
+		Me.ButtonHapus.Size = New System.Drawing.Size(67, 24)
 		Me.ButtonHapus.TabIndex = 3
 		Me.ButtonHapus.Text = "Hapus"
 		Me.ButtonHapus.UseVisualStyleBackColor = True
 		'
 		'ButtonEdit
 		'
-		Me.ButtonEdit.Location = New System.Drawing.Point(110, 19)
+		Me.ButtonEdit.Location = New System.Drawing.Point(72, 19)
 		Me.ButtonEdit.Name = "ButtonEdit"
-		Me.ButtonEdit.Size = New System.Drawing.Size(81, 37)
+		Me.ButtonEdit.Size = New System.Drawing.Size(59, 25)
 		Me.ButtonEdit.TabIndex = 2
 		Me.ButtonEdit.Text = "Edit"
 		Me.ButtonEdit.UseVisualStyleBackColor = True
@@ -206,7 +213,7 @@ Partial Class FormSiswa
 		'
 		Me.ButtonTambah.Location = New System.Drawing.Point(6, 19)
 		Me.ButtonTambah.Name = "ButtonTambah"
-		Me.ButtonTambah.Size = New System.Drawing.Size(81, 38)
+		Me.ButtonTambah.Size = New System.Drawing.Size(60, 25)
 		Me.ButtonTambah.TabIndex = 1
 		Me.ButtonTambah.Text = "Tambah"
 		Me.ButtonTambah.UseVisualStyleBackColor = True
@@ -216,16 +223,16 @@ Partial Class FormSiswa
 		Me.GroupBox3.Controls.Add(Me.ButtonKeluarBatal)
 		Me.GroupBox3.Location = New System.Drawing.Point(364, 153)
 		Me.GroupBox3.Name = "GroupBox3"
-		Me.GroupBox3.Size = New System.Drawing.Size(293, 65)
+		Me.GroupBox3.Size = New System.Drawing.Size(228, 65)
 		Me.GroupBox3.TabIndex = 3
 		Me.GroupBox3.TabStop = False
 		Me.GroupBox3.Text = "Keluar/Batal"
 		'
 		'ButtonKeluarBatal
 		'
-		Me.ButtonKeluarBatal.Location = New System.Drawing.Point(95, 17)
+		Me.ButtonKeluarBatal.Location = New System.Drawing.Point(66, 19)
 		Me.ButtonKeluarBatal.Name = "ButtonKeluarBatal"
-		Me.ButtonKeluarBatal.Size = New System.Drawing.Size(103, 42)
+		Me.ButtonKeluarBatal.Size = New System.Drawing.Size(103, 23)
 		Me.ButtonKeluarBatal.TabIndex = 4
 		Me.ButtonKeluarBatal.Text = "Keluar"
 		Me.ButtonKeluarBatal.UseVisualStyleBackColor = True
@@ -235,7 +242,7 @@ Partial Class FormSiswa
 		Me.GroupBox4.Controls.Add(Me.DGVSiswa)
 		Me.GroupBox4.Location = New System.Drawing.Point(12, 224)
 		Me.GroupBox4.Name = "GroupBox4"
-		Me.GroupBox4.Size = New System.Drawing.Size(645, 152)
+		Me.GroupBox4.Size = New System.Drawing.Size(580, 152)
 		Me.GroupBox4.TabIndex = 4
 		Me.GroupBox4.TabStop = False
 		Me.GroupBox4.Text = "Data Siswa"
@@ -245,22 +252,14 @@ Partial Class FormSiswa
 		Me.DGVSiswa.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
 		Me.DGVSiswa.Location = New System.Drawing.Point(6, 19)
 		Me.DGVSiswa.Name = "DGVSiswa"
-		Me.DGVSiswa.Size = New System.Drawing.Size(615, 127)
+		Me.DGVSiswa.Size = New System.Drawing.Size(544, 127)
 		Me.DGVSiswa.TabIndex = 0
-		'
-		'TextBoxCariNIS
-		'
-		Me.TextBoxCariNIS.Location = New System.Drawing.Point(0, 17)
-		Me.TextBoxCariNIS.Name = "TextBoxCariNIS"
-		Me.TextBoxCariNIS.Size = New System.Drawing.Size(138, 20)
-		Me.TextBoxCariNIS.TabIndex = 10
-		Me.TextBoxCariNIS.Text = "Masukan Nis yang di cari"
 		'
 		'FormSiswa
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-		Me.ClientSize = New System.Drawing.Size(685, 450)
+		Me.ClientSize = New System.Drawing.Size(600, 450)
 		Me.Controls.Add(Me.GroupBox4)
 		Me.Controls.Add(Me.GroupBox3)
 		Me.Controls.Add(Me.GroupBox2)

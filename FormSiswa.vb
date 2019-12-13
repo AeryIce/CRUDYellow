@@ -143,4 +143,46 @@ Public Class FormSiswa
 
 
 	End Sub
+
+	Private Sub ButtonCari_Click(sender As Object, e As EventArgs) Handles ButtonCari.Click
+		If TextBoxCariNIS.Text = "" Then
+			MsgBox("Masukan NIS yg akan di cari")
+		Else
+			Call Koneksi()
+			Cmd = New SqlCommand("SELECT * FROM siswa WHERE NIS ='" & TextBoxCariNIS.Text & "' ", Conn)
+			Dr = Cmd.ExecuteReader
+			Dr.Read()
+			If Dr.HasRows Then
+				Call Koneksi()
+				Da = New SqlDataAdapter("SELECT * FROM siswa WHERE NIS ='" & TextBoxCariNIS.Text & "' ", Conn)
+				Ds = New DataSet
+				Da.Fill(Ds)
+				DGVSiswa.DataSource = Ds.Tables(0)
+				TextBoxNIS.Text = Dr.Item("NIS")
+				TextBoxNamaSiswa.Text = Dr.Item("NamaSiswa")
+				TextBoxPassword.Text = Dr.Item("Password")
+				TextBoxAlamat.Text = Dr.Item("Alamat")
+				ComboBoxJenisKelamin.Text = Dr.Item("JenisKelamin")
+				TextBoxNamaSiswa.Enabled = True
+				TextBoxAlamat.Enabled = True
+				ComboBoxJenisKelamin.Enabled = True
+				TextBoxPassword.Enabled = True
+			Else
+				MsgBox("Data Tidak Ada")
+			End If
+		End If
+	End Sub
+
+	Private Sub ButtonEdit_Click(sender As Object, e As EventArgs) Handles ButtonEdit.Click
+		If TextBoxCariNIS.Text = "" Then
+			MsgBox("Cari NIS Terlebih Dahulu")
+		Else
+			If MsgBox("Update Data?", MsgBoxStyle.YesNo, "Konfirmasi") = MsgBoxResult.Yes Then
+				Call Koneksi()
+
+			End If
+
+
+		End If
+	End Sub
 End Class
